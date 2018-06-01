@@ -1,2 +1,2 @@
 # DarkNight
-A dark night needs stars. :star
+A dark night needs stars. :star:
