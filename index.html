@@ -7,73 +7,90 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="renderer" content="webkit">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-    <title>Timer</title>
+    <title>Mt</title>
     <style>
         body {
             -webkit-font-smoothing: antialiased;
             font-family: Helvetica Neue, Helvetica, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
-            background-image: url('background.png');
+            background-image: url('background.jpg') ;
+            background-repeat: no-repeat;
+            background-size: 100%;
             font-size: 85%;
             margin: 0;
         }
-        
+
         h2 {
             font-size: 220%;
             font-weight: 400;
         }
-        
+
         .content {
             position: absolute;
             width: 100%;
             top: 40%;
             transform: translate(0, -50%);
             text-align: center;
+
         }
-        
+
         .timer {
             font-size: 180%;
             line-height: 1.5;
             margin: 1em 0;
         }
-        
+
         .timer b {
-            color: rgb(253, 99, 125);
+            color: rgb(133, 32, 13);
         }
+
+        span{
+            font-size: 2px;
+            font-weight: bold;
+        }
+       #life{
+           background-image: url("background.png");
+           background-repeat: no-repeat;
+           background-size: 50px;
+           position: absolute;
+           left: 48%;
+           height: 50px;
+           width: 50px;
+       }
     </style>
 </head>
 
 <body>
-    <div class="content">
-        <h2>Time Passing</h2>
-        <div class="timer">
-            <b id="d"></b> 天 <b id="h"></b> 时 <b id="m"></b> 分 <b id="s"></b> 秒
-        </div>
+<div class="content">
+    <div id="life"></div>
+    <div class="timer">
+        <b id="d"></b><span>Day </span> <b id="h"></b><span>Hour</span>  <b id="m"></b> <span>Min</span> <b id="s"></b> <span>Sec</span>
     </div>
+</div>
 
-    <script>
-        function timer() {
-            var start = new Date(1993, 10, 13); 
-            var t = new Date() - start;
-            var h = ~~(t / 1000 / 60 / 60 % 24);
-            if (h < 10) {
-                h = "0" + h;
-            }
-            var m = ~~(t / 1000 / 60 % 60);
-            if (m < 10) {
-                m = "0" + m;
-            }
-            var s = ~~(t / 1000 % 60);
-            if (s < 10) {
-                s = "0" + s;
-            }
-            document.getElementById('d').innerHTML = ~~(t / 1000 / 60 / 60 / 24);
-            document.getElementById('h').innerHTML = h;
-            document.getElementById('m').innerHTML = m;
-            document.getElementById('s').innerHTML = s;
+<script>
+    function timer() {
+        var start = new Date(1993, 10, 13);
+        var t = new Date() - start;
+        var h = ~~(t / 1000 / 60 / 60 % 24);
+        if (h < 10) {
+            h = "0" + h;
         }
-        timer();
-        setInterval(timer, 1000);
-    </script>
+        var m = ~~(t / 1000 / 60 % 60);
+        if (m < 10) {
+            m = "0" + m;
+        }
+        var s = ~~(t / 1000 % 60);
+        if (s < 10) {
+            s = "0" + s;
+        }
+        document.getElementById('d').innerHTML = ~~(t / 1000 / 60 / 60 / 24);
+        document.getElementById('h').innerHTML = h;
+        document.getElementById('m').innerHTML = m;
+        document.getElementById('s').innerHTML = s;
+    }
+    timer();
+    setInterval(timer, 1000);
+</script>
 </body>
 
 </html>
